@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Graveyard Shift — Final Tile Set</title>
+  <style>
+    body {
+      background: #1A0F2E;
+      color: #FFF5D6;
+      font-family: monospace;
+      padding: 32px;
+      margin: 0;
+    }
+    h1 { color: #FFD53D; font-size: 22px; margin-bottom: 4px; }
+    .subtitle { color: #7A7A8C; font-size: 13px; margin-bottom: 8px; }
+    .badge {
+      display: inline-block;
+      background: #3D1A5C;
+      border: 1px solid #9B5FD0;
+      color: #9B5FD0;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 32px;
+    }
+    .badge.confirmed {
+      background: #1A3C1A;
+      border-color: #39FF14;
+      color: #39FF14;
+    }
+    .tile-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .tile-card {
+      background: #2A1545;
+      border: 1px solid #3D1A5C;
+      border-radius: 8px;
+      padding: 16px;
+      width: 180px;
+    }
+    .tile-card.confirmed {
+      border-color: #39FF14;
+    }
+    .tile-card h2 {
+      margin: 0 0 3px 0;
+      font-size: 13px;
+      color: #FFD53D;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .tile-card .tell {
+      font-size: 10px;
+      color: #9B5FD0;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .sprite-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #3D1A5C;
+      border-radius: 4px;
+      padding: 12px;
+      margin-bottom: 10px;
+      min-height: 96px;
+    }
+    .sprite-wrap img {
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      width: 96px;
+      height: 96px;
+    }
+    .bible-note { font-size: 10px; color: #40404E; }
+    .silhouette-tag {
+      font-size: 10px;
+      color: #7A7A8C;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Graveyard Shift — Final Tile Set</h1>
+  <p class="subtitle">7 canonical tiles · locked 2026-04-25 · gpt-image-2 reference-matched</p>
+  <span class="badge confirmed">✓ LOCKED — 7 tiles</span>
+
+  <div class="tile-grid">
+
+    <div class="tile-card confirmed">
+      <h2>Zombie Head</h2>
+      <div class="tell">Wide jaw + single offset ear stub</div>
+      <div class="sprite-wrap">
+        <img src="../../assets/art/tiles/tile_zombie_graveyard_64.png" alt="Zombie Head">
+      </div>
+      <div class="silhouette-tag">Blocky-organic · primary character</div>
+    </div>
+
+    <div class="tile-card confirmed">
+      <h2>Mummy</h2>
+      <div class="tell">Wrapped head, googly eyes peeking through</div>
+      <div class="sprite-wrap">
+        <img src="../../assets/art/tiles/tile_mummy_graveyard_64.png" alt="Mummy">
+      </div>
+      <div class="silhouette-tag">Blocky-organic · wrapped vs bare zombie</div>
+    </div>
+
+    <div class="tile-card confirmed">
+      <h2>Gravestone</h2>
+      <div class="tell">Compact arch-top tombstone, "RIP"</div>
+      <div class="sprite-wrap">
+        <img src="../../assets/art/tiles/tile_gravestone_graveyard_64.png" alt="Gravestone">
+      </div>
+      <div class="silhouette-tag">Angular-geometric · arch-on-rectangle</div>
+    </div>
+
+    <div class="tile-card confirmed">
+      <h2>Pumpkin</h2>
+      <div class="tell">Jack-o-lantern, bright orange</div>
+      <div class="sprite-wrap">
+        <img src="../../assets/art/tiles/tile_pumpkin_graveyard_64.png" alt="Pumpkin">
+      </div>
+      <div class="silhouette-tag">Blob-organic · only orange tile</div>
+    </div>
+
+    <div class="tile-card confirmed">
+      <h2>Ghost</h2>
+      <div class="tell">Sheet ghost, wavy hem, hollow eyes</div>
+      <div class="sprite-wrap">
+        <img src="../../assets/art/tiles/tile_ghost_graveyard_64.png" alt="Ghost">
+      </div>
+      <div class="silhouette-tag">Blob-organic · unique drape silhouette</div>
+    </div>
+
+    <div class="tile-card confirmed">
+      <h2>Witch Hat</h2>
+      <div class="tell">Tall triangle + brim — only triangle on board</div>
+      <div class="sprite-wrap">
+        <img src="../../assets/art/tiles/tile_witchhat_graveyard_64.png" alt="Witch Hat">
+      </div>
+      <div class="silhouette-tag">Angular-geometric · uniquest silhouette</div>
+    </div>
+
+    <div class="tile-card confirmed">
+      <h2>Cauldron</h2>
+      <div class="tell">Round pot, stubby legs, green bubbles</div>
+      <div class="sprite-wrap">
+        <img src="../../assets/art/tiles/tile_cauldron_graveyard_64.png" alt="Cauldron">
+      </div>
+      <div class="silhouette-tag">Blob-organic · round pot vs ghost drape</div>
+    </div>
+
+  </div>
+
+  <hr style="border:1px solid #3D1A5C; margin: 40px 0 32px;">
+
+  <h1 style="font-size:18px;">Grid Background</h1>
+  <p class="subtitle" style="margin-bottom:24px;">8×8 empty board · single tileable cell · 2 variants each</p>
+
+  <div class="tile-grid">
+
+    <div class="tile-card" style="width:220px;">
+      <h2>Full Grid A</h2>
+      <div class="tell">Empty 8×8 stone board</div>
+      <div class="sprite-wrap" style="min-height:220px;">
+        <img src="../../assets/art/environment/env_grid_board_512_1.png" alt="Grid A" style="width:200px;height:200px;">
+      </div>
+      <div class="bible-note">env_grid_board_512_1.png</div>
+    </div>
+
+    <div class="tile-card" style="width:220px;">
+      <h2>Full Grid B</h2>
+      <div class="tell">Empty 8×8 stone board</div>
+      <div class="sprite-wrap" style="min-height:220px;">
+        <img src="../../assets/art/environment/env_grid_board_512_2.png" alt="Grid B" style="width:200px;height:200px;">
+      </div>
+      <div class="bible-note">env_grid_board_512_2.png</div>
+    </div>
+
+    <div class="tile-card">
+      <h2>Cell Tile A</h2>
+      <div class="tell">Single tileable stone cell</div>
+      <div class="sprite-wrap">
+        <img src="../../assets/art/environment/env_grid_cell_64_1.png" alt="Cell A">
+      </div>
+      <div class="bible-note">env_grid_cell_64_1.png</div>
+    </div>
+
+    <div class="tile-card">
+      <h2>Cell Tile B</h2>
+      <div class="tell">Single tileable stone cell</div>
+      <div class="sprite-wrap">
+        <img src="../../assets/art/environment/env_grid_cell_64_2.png" alt="Cell B">
+      </div>
+      <div class="bible-note">env_grid_cell_64_2.png</div>
+    </div>
+
+  </div>
+
+  <p style="margin-top:40px; font-size:11px; color:#40404E;">
+    Locked tile set · 2026-04-25 · assets/art/tiles/<br>
+    zombie · mummy · gravestone · pumpkin · ghost · witchhat · cauldron<br>
+    Archived: brain · eyeball · bone · slime · skull · werewolf · bandages<br>
+    Environment: env_grid_board_512 ×2 · env_grid_cell_64 ×2
+  </p>
+</body>
+</html>
