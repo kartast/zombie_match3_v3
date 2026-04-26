@@ -68,7 +68,7 @@ The hook affects gameplay (it's not just aesthetic), is explainable in one sente
 
 ### Core Mechanics (Systems we build)
 
-1. **8×8 reactive match-3 grid** with 7 tile types (brain, eyeball, bone, slime, gravestone, zombie, bandages)
+1. **8×8 reactive match-3 grid** with 6 base tile types: brain, eyeball, bone, slime, gravestone, bandages. **Zombie is a tile STATE (infection overlay), not a tile type.** Any base tile can become infected — it retains its original type for matching purposes but gains a zombie appearance and infection behavior. Matching 3+ infected tiles of the same base type clears the overlay and the tiles simultaneously, collecting toward goals normally. Infection spreads the overlay; the underlying tile type is never replaced.
 2. **Reactive infection spread** — tiles you didn't match this turn convert nearby tiles to zombies on the next turn
 3. **Goal-collection win condition** with star ratings (1-3 stars based on moves remaining at win)
 4. **Hand-authored level templates** — initial board state, infection seeds, goal targets, move budget
@@ -105,7 +105,7 @@ The hook affects gameplay (it's not just aesthetic), is explainable in one sente
 ## Core Loop
 
 ### Moment-to-Moment (30 seconds)
-Player scans the 8×8 board, identifies a match (3+ same-type tiles in a row/column), drags to swap. Match resolves with cascading pop juice — pieces clear, new ones fall, secondary cascades trigger, score ticks up. Then: tiles the player **didn't** match contribute to the next turn's infection spread. Combo banner appears on chains of 4+; screen shakes on ×3 cascade or higher. Audio + visual feedback confirms every action.
+Player scans the 8×8 board, identifies a match (3+ same-type tiles in a row/column), drags to swap. Match resolves with cascading pop juice — pieces clear, new ones fall, secondary cascades trigger, score ticks up. Then: tiles the player **didn't** match contribute to the next turn's infection spread. **Board refill policy**: new tiles that fall in after a clear follow a fixed, hand-authored queue defined per level — every run of a given level produces the same tile sequence. This keeps the board fully deterministic and supports precise clutch-moment design without RNG variance. Combo banner appears on chains of 4+; screen shakes on ×3 cascade or higher. Audio + visual feedback confirms every action.
 
 ### Short-Term (5-15 minutes)
 **A single level.** Player opens to a starting board with 1-3 infection seeds, a goal panel (e.g., "25 brains, 15 RIPs, 20 bones"), and a move budget (typically 15-25 moves). Plays 10-25 turns. Mid-level pivot is universal — the first ~8 turns the infection appears to be winning, then the player finds a power-up moment or chain that shifts momentum. Last 3-5 turns are the clutch zone: set up the winning chain or lose. Resolves with star rating (1-3 based on moves remaining) and a small reward animation.
@@ -233,7 +233,7 @@ This anchor is the seed of the art bible. Every asset spec must trace back to th
 ### Design Risks
 
 - **Reactive spread balance is the existential design risk.** If spread feels unfair or punishing on early levels, players quit before learning the system. Mitigation: explicit prototype validation in Phase 1, conservative spread rates on first 5 levels.
-- **7-tile difficulty floor may be too steep.** 7 tile types means matches are rarer than 5-type boards. Could create early-level frustration. Mitigation: start levels at 5-6 active types, introduce tile types progressively across early levels.
+- **6-tile difficulty floor may be too steep.** 6 base tile types means matches are rarer than 4-5-type boards. Could create early-level frustration. Mitigation: start levels at 4 active types, introduce types progressively across early levels (level 1 = 4 types, level 5 = 5 types, level 8+ = all 6). Note: zombie infection state is an overlay and does not count as a tile type for match frequency calculations.
 - **Clutch tuning per-level requires authorial discipline.** Hand-authoring 15+ levels that *all* produce the clutch moment is non-trivial. Mitigation: define a level-design checklist that names the clutch moment explicitly per level.
 
 ### Technical Risks
@@ -263,7 +263,12 @@ This anchor is the seed of the art bible. Every asset spec must trace back to th
 
 **Core hypothesis**: *"The reactive spread mechanic creates clutch last-move moments that players find satisfying within 3-minute mobile sessions."*
 
-If the MVP confirms this, the rest of the game is a content problem (more levels, more biomes). If it doesn't, the hook is wrong and we need to redesign before expanding.
+**Playtest validation criteria (PASS requires both gates):**
+- **Feel gate**: ≥50% of playtesters spontaneously describe a level as "close," "tense," or "almost lost it" without being prompted — measured via brief debrief after each session.
+- **Time gate**: Median session length across all playtested levels is 3–7 minutes — measured by timer from level-start to level-end (win or lose).
+- **Sample**: Minimum 5 independent playtest sessions across at least 3 different levels before verdict.
+
+If both gates pass, the hypothesis is confirmed and the rest of the game is a content problem (more levels, more biomes). If either gate fails, the hook is wrong and we redesign before expanding.
 
 **Required for MVP**:
 1. **8×8 reactive match-3 grid** with 7 tile types — directly tests core mechanic

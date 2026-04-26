@@ -1,0 +1,18 @@
+; Engine configuration file.
+; PROTOTYPE - NOT FOR PRODUCTION
+; Question: Does reactive infection spread produce satisfying clutch moments?
+; Date: 2026-04-25
+
+config_version=5
+
+[application]
+
+config/name="InfectionSpreadPrototype"
+run/main_scene="res://Main.tscn"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+
+[display]
+
+window/size/viewport_width=1100
+window/size/viewport_height=1500
+window/size/resizable=true
